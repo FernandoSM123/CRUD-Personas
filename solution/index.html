@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styleSheet1.css">
+    <script type="text/javascript" src="scriptSheet1.js"></script>
+    <title>CRUD Personas</title>
+</head>
+
+<body onload="loadFromLocalStorage()">
+    <div class="container">
+        <div class="header">
+          <h1>Registro de Personas</h1>
+          <p>Aplicación web que permite realizar un CRUD(Create,Read,Update,Delete), sobre un registro de personas
+          con base en 3 datos: Nombre,Apellido,Edad. Dicha aplicación almacena la información en la memoria local
+          del navegador, tambien permite realizar la acción de limpiar completamente el registro</p>  
+        </div>
+        
+        <div class="left-container">
+            <h3>Agregar Personas</h3>
+            <form name="myForm1">
+                    <label>Nombre:</label><br>
+                    <input type="text" name="nombre1" id="formNombre1" onkeypress="CheckSpace(event)"><br>
+                    <label>Apellido:</label><br>
+                    <input type="text" name="apellido1" id="formApellido1" onkeypress="CheckSpace(event)"><br>
+                    <label>Edad:</label><br>
+                    <input type="number" name="edad1" id="formEdad1"><br>
+                    <input type="button" value="Agregar"  onclick="insertPerson()">
+            </form>
+        </div>
+        
+        <div class="right-container">
+            <h3>Lista de Personas</h3>
+            <table id="myTable" border="1">
+                <thead>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th>Actualizar</th>
+                    <th>Borrar</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <h3 id="txt1">No hay personas registradas aún</h3>
+            <button onclick="clearAll()">Limpiar Registro</button>
+        </div>
+        
+        <!--Update form-->
+        <div class="overlay" id="overlay">
+			<div class="popup" id="popup">
+				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup" onclick="hidePopUp()">Cerrar</a>
+				<h3>Modificar datos de la persona</h3>
+				<form name="myForm2">
+				    <label>Nombre:</label><br>
+                    <input type="text" name="nombre2" id="formNombre2" onkeypress="CheckSpace(event)"><br>
+                    <label>Apellido:</label><br>
+                    <input type="text" name="apellido2" id="formApellido2" onkeypress="CheckSpace(event)"><br>
+                    <label>Edad:</label><br>
+                    <input type="number" name="edad2" id="formEdad2" onkeypress="CheckSpace(event)"><br>
+					<input type="button" value="Actualizar" id="actualizar">
+				</form>
+			</div>
+		</div>
+   
+    </div>
+</body>
+</html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
